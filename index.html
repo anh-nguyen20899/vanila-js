@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Foodie</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <link rel = "stylesheet" href = "style_foodie.css">
+</head>
+<body>
+  <div class="nav-bar">
+    <nav>
+      <ul>
+        <li><a href="">Our Menu</a></li>
+        <li><a href="">Your Order</a></li>
+        <li><i class="fa fa-shopping-cart" style="font-size:36px"></i></li>    
+      </ul>
+    </nav>
+  </div>
+  <div class = "container">
+    <button class="accordion tooltip">
+      <i class="fa fa-search my-float"></i>
+      <span class="tooltiptext">Let's explore awesome recipe</span>
+    </button>
+        <div class="panel">
+          <div class = "meal-search-box">
+            <input type = "text" class = "search-control" placeholder="Enter an ingredient" id = "search-input">
+            <button type = "submit" class = "search-btn btn" id = "search-btn">
+              <i class = "fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      
+        <div id = "meal-details">  
+          <!-- meal content -->
+            <!-- <div class="shop-items">
+              <div class="shop-item">
+                  <span class="shop-item-title">Album 1</span>
+                  <img class="shop-item-image" src="https://www.themealdb.com/images/media/meals/atd5sh1583188467.jpg">
+                  <div class="shop-item-details">
+                      <span class="shop-item-price">$12.99</span>
+                      <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                  </div>
+              </div>             
+            </div> -->
+        </div>
+  </div>
+
+
+
+  <script src = "my_script.js"></script>
+</body>
+</html>
