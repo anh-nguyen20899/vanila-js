@@ -1,59 +1,151 @@
-var acc = document.getElementsByClassName("accordion");
-var i;
 const bestSeller = [
   {
-    "strMeal": "BBQ Pork Sloppy Joes",
-    "strMealThumb": "https://www.themealdb.com/images/media/meals/atd5sh1583188467.jpg",
-    "idMeal": "52995",
-    "price": "10"
+    strMeal: "BBQ Pork Sloppy Joes",
+    strMealThumb:
+      "https://www.themealdb.com/images/media/meals/atd5sh1583188467.jpg",
+    idMeal: "52995",
+    price: "10",
   },
   {
-    "strMeal": "Bread and Butter Pudding",
-    "strMealThumb": "https://www.themealdb.com/images/media/meals/xqwwpy1483908697.jpg",
-    "idMeal": "52792",
-    "price": "15"
+    strMeal: "Butter Pudding",
+    strMealThumb:
+      "https://www.themealdb.com/images/media/meals/xqwwpy1483908697.jpg",
+    idMeal: "52792",
+    price: "15",
   },
   {
-    "strMeal": "Chilli prawn linguine",
-    "strMealThumb": "https://www.themealdb.com/images/media/meals/usywpp1511189717.jpg",
-    "idMeal": "52839",
-    "price": "12"
+    strMeal: "Chilli prawn linguine",
+    strMealThumb:
+      "https://www.themealdb.com/images/media/meals/usywpp1511189717.jpg",
+    idMeal: "52839",
+    price: "12",
   },
   {
-    "strMeal": "Chivito uruguayo",
-    "strMealThumb": "https://www.themealdb.com/images/media/meals/n7qnkb1630444129.jpg",
-    "idMeal": "53063",
-    "price": "15.5"
+    strMeal: "Chivito uruguayo",
+    strMealThumb:
+      "https://www.themealdb.com/images/media/meals/n7qnkb1630444129.jpg",
+    idMeal: "53063",
+    price: "15.5",
   },
-]
+  {
+    strMeal: "Chicken Congee",
+    strMealThumb: "https://www.themealdb.com/images/media/meals/1529446352.jpg",
+    idMeal: "52956",
+    price: "10.5",
+  },
+  {
+    strMeal: "Chicken Handi",
+    strMealThumb:
+      "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg",
+    idMeal: "52795",
+    price: "18.20",
+  },
+  {
+    strMeal: "Kentucky Fried Chicken",
+    strMealThumb:
+      "https://www.themealdb.com/images/media/meals/xqusqy1487348868.jpg",
+    idMeal: "52813",
+    price: "9",
+  },
+  {
+    strMeal: "Kung Pao Chicken",
+    strMealThumb: "https://www.themealdb.com/images/media/meals/1525872624.jpg",
+    idMeal: "52945",
+    price: "10.5",
+  },
+  {
+    strMeal: "Pad See Ew",
+    strMealThumb:
+      "https://www.themealdb.com/images/media/meals/uuuspp1468263334.jpg",
+    idMeal: "52774",
+    price: "8.5",
+  },
+  {
+    strMeal: "Piri-piri chicken and slaw",
+    strMealThumb:
+      "https://www.themealdb.com/images/media/meals/hglsbl1614346998.jpg",
+    idMeal: "53039",
+    price: "12",
+  },
+  {
+    strMeal: "Thai Green Curry",
+    strMealThumb:
+      "https://www.themealdb.com/images/media/meals/sstssx1487349585.jpg",
+    idMeal: "52814",
+    price: "16.25",
+  },
+  {
+    strMeal: "BBQ Pork Sloppy Joes",
+    strMealThumb:
+      "https://www.themealdb.com/images/media/meals/atd5sh1583188467.jpg",
+    idMeal: "52995",
+    price: "16",
+  },
+  {
+    strMeal: "Bigos (Hunters Stew)",
+    strMealThumb:
+      "https://www.themealdb.com/images/media/meals/md8w601593348504.jpg",
+    idMeal: "53018",
+    price: "20",
+  },
+  {
+    strMeal: "Hot and Sour Soup",
+    strMealThumb: "https://www.themealdb.com/images/media/meals/1529445893.jpg",
+    idMeal: "52954",
+    price: "14.25",
+  },
+  {
+    strMeal: "Japanese Katsudon",
+    strMealThumb:
+      "https://www.themealdb.com/images/media/meals/d8f6qx1604182128.jpg",
+    idMeal: "53034",
+    price: "12.65",
+  },
+  {
+    strMeal: "Pork Cassoulet",
+    strMealThumb:
+      "https://www.themealdb.com/images/media/meals/wxuvuv1511299147.jpg",
+    idMeal: "52847",
+    price: "15.5",
+  },
+  {
+    strMeal: "Sweet and Sour Pork",
+    strMealThumb: "https://www.themealdb.com/images/media/meals/1529442316.jpg",
+    idMeal: "52949",
+    price: "22",
+  }
+];
 loadDocument();
 function loadDocument() {
-  loadAccordion();
   loadBestSeller();
+  onClickedAddCart();
 }
-function loadAccordion() {
-  for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-      /* Toggle between adding and removing the "active" class,
-      to highlight the button that controls the panel */
-      this.classList.toggle("active");
-  
-      /* Toggle between hiding and showing the active panel */
-      var panel = this.nextElementSibling;
-      if (panel.style.display === "block") {
-        panel.style.display = "none";
-      } else {
-        panel.style.display = "block";
-      }
-    });
+function onClickedAddCart() {
+  var addToCartButtons = document.getElementsByClassName("shop-item-button");
+  for (var i = 0; i < addToCartButtons.length; i++) {
+    var button = addToCartButtons[i];
+    button.addEventListener("click", addToCartClicked);
   }
+  var removeCartItemButtons = document.getElementsByClassName("btn-danger");
+  for (var i = 0; i < removeCartItemButtons.length; i++) {
+    var button = removeCartItemButtons[i];
+    button.addEventListener("click", removeCartItem);
+  }
+  var quantityInputs = document.getElementsByClassName("cart-quantity-input");
+  for (var i = 0; i < quantityInputs.length; i++) {
+    var input = quantityInputs[i];
+    input.addEventListener("change", quantityChanged);
+  }
+  document
+    .getElementsByClassName("btn-purchase")[0]
+    .addEventListener("click", purchaseClicked);
 }
 
-function loadBestSeller () {
+function loadBestSeller() {
   var items = document.getElementById("meal-details");
   let html = "";
-  if(bestSeller.length > 0) {
-    bestSeller.forEach(meal => {
+  if (bestSeller.length > 0) {
+    bestSeller.forEach((meal) => {
       html += `
       <div class="shop-items">
               <div class="shop-item">
@@ -64,8 +156,86 @@ function loadBestSeller () {
                       <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
                   </div>
               </div>             
-      </div>`
-  });
+      </div>`;
+    });
   }
   items.innerHTML = html;
+}
+function addToCartClicked(event) {
+  var button = event.target;
+  var shopItem = button.parentElement.parentElement;
+  var title = shopItem.getElementsByClassName("shop-item-title")[0].innerText;
+  var price = shopItem.getElementsByClassName("shop-item-price")[0].innerText;
+  var imageSrc = shopItem.getElementsByClassName("shop-item-image")[0].src;
+  addItemToCart(title, price, imageSrc);
+  updateCartTotal();
+}
+
+function addItemToCart(title, price, imageSrc) {
+  var cartRow = document.createElement("div");
+  cartRow.classList.add("cart-row");
+  var cartItems = document.getElementsByClassName("cart-items")[0];
+  var cartItemNames = cartItems.getElementsByClassName("cart-item-title");
+  for (var i = 0; i < cartItemNames.length; i++) {
+    if (cartItemNames[i].innerText == title) {
+      alert("This item is already added to the cart");
+      return;
+    }
+  }
+  var cartRowContents = `
+      <div class="cart-item cart-column">
+          <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
+          <span class="cart-item-title">${title}</span>
+      </div>
+      <span class="cart-price cart-column">${price}</span>
+      <div class="cart-quantity cart-column">
+          <input class="cart-quantity-input" type="number" value="1">
+          <button class="btn btn-danger" type="button">REMOVE</button>
+      </div>`;
+  cartRow.innerHTML = cartRowContents;
+  cartItems.append(cartRow);
+  cartRow
+    .getElementsByClassName("btn-danger")[0]
+    .addEventListener("click", removeCartItem);
+  cartRow
+    .getElementsByClassName("cart-quantity-input")[0]
+    .addEventListener("change", quantityChanged);
+}
+function removeCartItem(event) {
+  var buttonClicked = event.target;
+  buttonClicked.parentElement.parentElement.remove();
+  updateCartTotal();
+}
+function quantityChanged(event) {
+  var input = event.target;
+  if (isNaN(input.value) || input.value <= 0) {
+    input.value = 1;
+  }
+  updateCartTotal();
+}
+function purchaseClicked() {
+  alert("Thank you for your purchase");
+  var cartItems = document.getElementsByClassName("cart-items")[0];
+  while (cartItems.hasChildNodes()) {
+    cartItems.removeChild(cartItems.firstChild);
+  }
+  updateCartTotal();
+}
+function updateCartTotal() {
+  var cartItemContainer = document.getElementsByClassName("cart-items")[0];
+  var cartRows = cartItemContainer.getElementsByClassName("cart-row");
+  var total = 0;
+  for (var i = 0; i < cartRows.length; i++) {
+    var cartRow = cartRows[i];
+    var priceElement = cartRow.getElementsByClassName("cart-price")[0];
+    var quantityElement = cartRow.getElementsByClassName(
+      "cart-quantity-input"
+    )[0];
+    var price = parseFloat(priceElement.innerText.replace("$", ""));
+    var quantity = quantityElement.value;
+    total = total + price * quantity;
+  }
+  total = Math.round(total * 100) / 100;
+  document.getElementsByClassName("cart-total-price")[0].innerText =
+    "$" + total;
 }
